@@ -10,8 +10,11 @@
 
 #define _ENTRY(name)	\
 	.text; .align 4; .globl name; name:
-
+#ifndef __ELF__
 #define ENTRY(name)	\
 	_ENTRY(_C_LABEL(name))
+#else
+#define ENTRY(name) _ENTRY(name)
+#endif
 
 #endif
