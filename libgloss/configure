@@ -2444,7 +2444,7 @@ case "${target}" in
 	subdirs="$subdirs pa"
 
 	;;
-  i960-*-coff)
+  i960-*-coff | i960-*-elf)
 	subdirs="$subdirs i960"
 
 	;;
