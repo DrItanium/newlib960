@@ -191,7 +191,7 @@ case "${host_cpu}" in
 	;;
   i960)
 	machine_dir=i960
-	newlib_cflags="${newlib_cflags} -DREENTRANT_SYSCALLS_PROVIDED"
+	default_newlib_io_long_long="yes"
 	;;
   i[34567]86)
 	# Don't use for these since they provide their own setjmp.
