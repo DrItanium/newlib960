@@ -77,6 +77,9 @@
 #ifndef __UINTMAX_TYPE__
 #define __UINTMAX_TYPE__ long long unsigned int
 #endif
+#ifndef __SIZE_MAX__
+#define __SIZE_MAX__ 0xffffffffUL
+#endif
 #endif
 
 #ifdef __cplusplus
