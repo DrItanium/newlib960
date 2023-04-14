@@ -189,10 +189,6 @@ case "${host_cpu}" in
   hppa*)
 	machine_dir=hppa
 	;;
-  i960)
-	machine_dir=i960
-	default_newlib_io_long_long="yes"
-	;;
   i[34567]86)
 	# Don't use for these since they provide their own setjmp.
 	case ${host} in
@@ -206,6 +202,10 @@ case "${host_cpu}" in
 		mach_add_setjmp=true
 		;;
 	esac
+	;;
+  i960)
+	machine_dir=i960
+	default_newlib_io_long_long="yes"
 	;;
   ia64*)
 	;;
