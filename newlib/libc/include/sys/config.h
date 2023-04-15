@@ -193,6 +193,57 @@
 #define __DYNAMIC_REENT__
 #endif
 
+#ifdef __i960__
+/* use the values defined by my hacked gcc 11.2.0 port since 3.4.6 doesn't have these */
+#ifndef __INTPTR_TYPE__
+#define __INTPTR_TYPE__ long int
+#endif
+#ifndef __INTPTR_MAX__
+#define __INTPTR_MAX__ 0x7fffffffL
+#endif
+#ifndef __UINTPTR_TYPE__
+#define __UINTPTR_TYPE__ long unsigned int
+#endif
+#ifndef __UINTPTR_MAX__
+#define __UINTPTR_MAX__ 0xffffffffUL
+#endif
+#ifndef __INT32_TYPE__
+#define __INT32_TYPE__ long int
+#endif
+#ifndef __UINT32_TYPE__
+#define __UINT32_TYPE__ long unsigned int
+#endif
+#ifndef __INT8_TYPE__
+#define __INT8_TYPE__ signed char
+#endif
+#ifndef __UINT8_TYPE__
+#define __UINT8_TYPE__ unsigned char
+#endif
+#ifndef __INT16_TYPE__
+#define __INT16_TYPE__ short int
+#endif
+#ifndef __UINT16_TYPE__
+#define __UINT16_TYPE__ short unsigned int
+#endif
+#ifndef __INTMAX_MAX__
+#define __INTMAX_MAX__ 0x7fffffffffffffffLL
+#endif
+#ifndef __INTMAX_TYPE__
+#define __INTMAX_TYPE__ long long int
+#endif
+
+#ifndef __UINTMAX_MAX__
+#define __UINTMAX_MAX__ 0xffffffffffffffffULL
+#endif 
+#ifndef __UINTMAX_TYPE__
+#define __UINTMAX_TYPE__ long long unsigned int
+#endif
+#ifndef __SIZE_MAX__
+#define __SIZE_MAX__ 0xffffffffUL
+#endif
+#endif
+
+
 /* This block should be kept in sync with GCC's limits.h.  The point
    of having these definitions here is to not include limits.h, which
    would pollute the user namespace, while still using types of the
