@@ -16,7 +16,6 @@ lib_a_SOURCES = memccpy.S \
 				setjmp.S \
 				strchr.S \
 				strcmp.S \
-				strcpy.S \
 				strcspn.S \
 				strdup.S \
 				strlen.S \
