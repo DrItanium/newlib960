@@ -91,7 +91,7 @@ __strlen:
 .Lsearch_for_word_with_null_byte:
 	scanbyte 0,g4		# check for null byte
 	mov	g5,g7		# copy second word
-	bo	.Lsearch_for_null	# branch if null found, originally bo.f but that generates bad offset
+	bo.f	.Lsearch_for_null	# branch if null found
 	scanbyte 0,g7		# check for null byte
 	ldl	(g2),g4		# fetch next pair of word of src
 	addo	8,g2,g2		# post-increment src word pointer
