@@ -110,9 +110,9 @@ __strcmp:
 	bx	(g7)
 .Lrett:	
 	ret
-.diff:	bl	.neg
+.Ldiff:	bl	.neg
         mov     1,g0
 	bx	(g7)
-.neg:	subi    1,0,g0
+.Lneg:	subi    1,0,g0
 .Lexit: 	
 	bx	(g7)
