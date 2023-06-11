@@ -76,9 +76,9 @@
 	.align	2
 _strlen:
 #ifndef __PIC
-	lda 	Lrett,g14
+	lda 	.Lrett,g14
 #else
-	lda 	Lrett-(.+8)(ip),g14
+	lda 	.Lrett-(.+8)(ip),g14
 #endif
 __strlen:
 
@@ -88,30 +88,30 @@ __strlen:
 	lda	0xff,g3		# byte extraction mask
 	
 
-Lsearch_for_word_with_null_byte:
+.Lsearch_for_word_with_null_byte:
 	scanbyte 0,g4		# check for null byte
 	mov	g5,g7		# copy second word
-	bo.f	Lsearch_for_null	# branch if null found 
+	bo.f	.Lsearch_for_null	# branch if null found 
 	scanbyte 0,g7		# check for null byte
 	ldl	(g2),g4		# fetch next pair of word of src
 	addo	8,g2,g2		# post-increment src word pointer
-	bno	Lsearch_for_word_with_null_byte	# branch if null not found yet
+	bno	.Lsearch_for_word_with_null_byte	# branch if null not found yet
 
 	subo	4,g2,g2		# back up the byte pointer
 	mov	g7,g4		# move word with null to search word
-Lsearch_for_null:
+.Lsearch_for_null:
 	subo	9,g2,g2		# back up the byte pointer
-Lsearch_for_null.a:
+.Lsearch_for_null.a:
 	and	g4,g3,g14	# extract byte
 	cmpo	0,g14		# is it null?
 	addo	1,g2,g2		# bump src byte ptr
 	shro	8,g4,g4		# shift word to position next byte
-	bne	Lsearch_for_null.a
+	bne	.Lsearch_for_null.a
 
-Lexit_code:
+.Lexit_code:
 	subo	g0,g2,g0	# calculate string length
 	bx	(g13)		# g0 = addr of src;  g14 = 0
-Lrett:
+.Lrett:
 	ret
 
 /* end of strlen */
