@@ -101,7 +101,7 @@ __strcmp:
 
 .Lcloop: and	g4,g2,g5  	# extract and compare individual bytes
 	and	g4,g3,g6
-	cmpobne	g5,g6,.diff	# if they differ, go return 1 or -1
+	cmpobne	g5,g6,.Ldiff	# if they differ, go return 1 or -1
 	cmpo    0,g6		# they are the same.  Are they null?
 	shlo	8,g4,g4		# position mask for next extraction
 	bne	.Lcloop		# loop if null not encountered
@@ -110,7 +110,7 @@ __strcmp:
 	bx	(g7)
 .Lrett:	
 	ret
-.Ldiff:	bl	.neg
+.Ldiff:	bl	.Lneg
         mov     1,g0
 	bx	(g7)
 .Lneg:	subi    1,0,g0
